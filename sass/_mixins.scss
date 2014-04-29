@@ -1,0 +1,13 @@
+@mixin input-placeholder {
+  &:-moz-placeholder { @content; opacity:1; }
+  &::-moz-placeholder { @content; opacity:1; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+@mixin textarea-placeholder {
+  &:-moz-placeholder { @content; opacity:1; }
+  &::-moz-placeholder { @content; opacity:1; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}

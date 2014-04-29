@@ -1,0 +1,45 @@
+$font_color: #82cdaf;
+
+
+html { overflow-y:scroll; font-size:62.5%; }
+
+body {
+   font-size:100%;
+   font-family: "HelveticaNeueMedium", Arial, Verdana;
+   text-align:left;
+   color:$font_color;
+   letter-spacing:0;
+   //background: url(../img/structure/main.jpg) no-repeat center top;
+}
+
+html,body {
+	/*font-family: 'primeregular';*/
+	width: 100%;
+	min-height: 100%;
+}
+
+body, div, a, h1, h2, h3, h4, h5, h6, p, ul, ol, li, img, label, input, select, blockquote, fieldset, legend, form { margin:0; padding:0; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, video, picture { display:block; }
+
+a { text-decoration: none; }
+
+a img { border:0; }
+
+img {
+    border:none;
+    max-width:100%; /* commented because it causes issues with IE */
+    display:block;
+}
+
+ul, ol {
+  li {
+    margin:0;
+    padding:0;
+    list-style-type: none;
+  }
+}
+
+.cf { zoom:1; }
+.cf:before,
+.cf:after { content:""; display:table; }
+.cf:after { clear:both; }
