@@ -1,6 +1,7 @@
 #wrapper, #scroller {
-	width: 100%;
+	max-width: 1248px;
 	height: 100%;
+	margin: 0 auto;
 }
 
 .toggle-grid {
@@ -11,7 +12,7 @@
 }
 
 .grid {
-	background: url(../img/structure/main-grid.png) no-repeat center top;
+	background: url(../img/structure/main-grid.png) no-repeat center 68px;
 }
 
 .navigation {
@@ -59,8 +60,7 @@
 	background-color: #fff;
 
 	ul {
-		max-width: 1248px;
-		margin: 0 auto;
+		margin: 0 0 0 15px;
 		li {
 			float: left;
 			padding: 0 37px 0 0;
@@ -92,7 +92,7 @@
 }
 
 #slide1 {
-	height: 700px;
+	height: 768px;
 	background: rgba(46,172,102,1);
 	background: -moz-linear-gradient(left, rgba(46,172,102,0.6) 0%, rgba(54,169,224,0.6) 100%);
 	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(46,172,102,0.6)), color-stop(100%, rgba(54,169,224,0.6)));
@@ -104,7 +104,29 @@
 
 	.content {
 		width: 100%;
-		background: url(/assets/img/structure/lines-slide1.png) no-repeat left top transparent;
+		height: 700px;
+		margin: 0 auto;
+		background: url(/assets/img/structure/slide1-lines.png) no-repeat left top transparent;
+
+		.logo {
+			position: absolute;
+			top: 195px;
+			left: 635px;
+			width: 113px;
+			height: 160px;
+			@include icons-sprite(slide1-logo-rufus);
+		}
+
+		.copy {
+			position: absolute;
+			top: 395px;
+			left: 635px;
+			width: 490px;
+
+			p {
+				color: #fff;
+			}
+		}
 	}
 }
 
