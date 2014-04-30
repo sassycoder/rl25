@@ -13,7 +13,7 @@ jQuery(document).ready(function ($) {
     var iScrollInstance;
 
     if (isMobileWebkit) {
-      iScrollInstance = new iScroll('wrapper');
+      //iScrollInstance = new iScroll('wrapper');
 
       $('#scroller').stellar({
         scrollProperty: 'transform',
@@ -30,9 +30,24 @@ jQuery(document).ready(function ($) {
 
     var toggleGrid = $('#wrapper');
 
-    $('.toggle-grid').click(function (e) {
+    $('.toggle-grid').on('click', function (e) {
         e.preventDefault();
         toggleGrid.toggleClass('grid');
+    });
+
+    $('.js-plus').on('click', function (e) {
+      e.preventDefault();
+      var getRef = $(this).attr('href');
+
+      if (isMobileWebkit) {
+        $(getRef).toggle();
+      } else {
+        $(getRef).toggleClass('fade-in');
+      }
+
+
+
+
     });
 
   });
@@ -92,7 +107,7 @@ jQuery(document).ready(function ($) {
         htmlbody.animate({
             scrollTop: $('.slide[data-slide="' + dataslide + '"]').
             offset().top
-        }, 1500, 'easeInOutQuint');
+        }, 1500, 'easeOutQuart');
     }
 
     // When the user clicks on the navigation links, get the data-slide

@@ -21,6 +21,26 @@ html,body {
 body, div, a, h1, h2, h3, h4, h5, h6, p, ul, ol, li, img, label, input, select, blockquote, fieldset, legend, form { margin:0; padding:0; }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, video, picture { display:block; }
 
+h1, h2, h3 {
+  font-family: "MetaWebPro-Thin", Arial, Verdana;
+  color: #82cdae;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 150px;
+  font-size: 15rem;
+  line-height: 135px;
+  line-height: 13.5rem;
+}
+
+h3 {
+  font-size: 50px;
+  font-size: 5rem;
+  line-height: 55px;
+  line-height: 5.5rem;
+}
+
 a { text-decoration: none; }
 
 a img { border:0; }
@@ -36,6 +56,7 @@ p {
 	font-size: 1.8rem;
 	line-height: 25px;
 	line-height: 2.5rem;
+  color: #649e88;
 }
 
 ul, ol {

@@ -1,5 +1,7 @@
+$slides: 16;
+
 #wrapper, #scroller {
-	max-width: 1248px;
+	width: 1248px;
 	height: 100%;
 	margin: 0 auto;
 }
@@ -20,6 +22,7 @@
 	z-index: 1;
 	background: rgba(255, 255, 255, 0.2);
 	padding: 20px;
+	left: 30px;
 
 	li {
 		width: 10px;
@@ -39,21 +42,6 @@
 			cursor: pointer;
 		}
 	}
-}
-
-.download {
-	background: url(../img/structure/download.png) no-repeat;
-	position: fixed;
-	right: 50px;
-	top: 20px;
-	height: 32px;
-	z-index: 1;
-	color: #fff;
-	text-decoration: none;
-	padding-top: 30px;
-	text-align: center;
-	width: 70px;
-	background-position: center -3px;
 }
 
 .wrapper-menu {
@@ -84,29 +72,84 @@
 	}
 }
 
+.hidden-content {
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: opacity .3s ease-in-out;
+	-moz-transition: opacity .3s ease-in-out;
+	-o-transition: opacity .3s ease-in-out;
+	-ms-transition: opacity .3s ease-in-out;
+	transition: opacity .3s ease-in-out;
+}
+
+.fade-in {
+	opacity: 1;
+	filter: alpha(opacity=100);
+	-webkit-transition: opacity .3s ease-in-out;
+	-moz-transition: opacity .3s ease-in-out;
+	-o-transition: opacity .3s ease-in-out;
+	-ms-transition: opacity .3s ease-in-out;
+	transition: opacity .3s ease-in-out;
+}
+
+.plus {
+	position: absolute;
+	width: 41px;
+	height: 41px;
+	overflow: hidden;
+	text-indent: -9999px;
+	@include icons-sprite(icon_plus);
+
+	&:hover, &:focus, &:active {
+		text-decoration: none;
+	}
+}
+
+.skewed-copy {
+	position: absolute;
+	width: 375px;
+	background: #fff;
+	background: rgba(255,255,255,0.9);
+	border: 1px solid #d6ffec;
+	-webkit-transform: skewX(-8deg);
+  -moz-transform: skewX(-8deg);
+  -o-transform: skewX(-8deg);
+  transform: skewX(-8deg);
+
+  p {
+  	width: 340px;
+  	padding: 15px 0 15px 25px;
+  	-webkit-transform: skewX(8deg);
+	  -moz-transform: skewX(8deg);
+	  -o-transform: skewX(8deg);
+	  transform: skewX(8deg);
+  }
+}
+
 .slide {
 	width: 100%;
 	height: 700px;
 	position: relative;
 	overflow: hidden;
-}
-
-#slide1 {
-	height: 768px;
-	background: rgba(46,172,102,1);
-	background: -moz-linear-gradient(left, rgba(46,172,102,0.6) 0%, rgba(54,169,224,0.6) 100%);
-	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(46,172,102,0.6)), color-stop(100%, rgba(54,169,224,0.6)));
-	background: -webkit-linear-gradient(left, rgba(46,172,102,0.6) 0%, rgba(54,169,224,0.6) 100%);
-	background: -o-linear-gradient(left, rgba(46,172,102,0.6) 0%, rgba(54,169,224,0.6) 100%);
-	background: -ms-linear-gradient(left, rgba(46,172,102,0.6) 0%, rgba(54,169,224,0.6) 100%);
-	background: linear-gradient(to right, rgba(46,172,102,0.6) 0%, rgba(54,169,224,0.6) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2eac66', endColorstr='#36a9e0', GradientType=1 );
 
 	.content {
 		width: 100%;
 		height: 700px;
 		margin: 0 auto;
-		background: url(/assets/img/structure/slide1-lines.png) no-repeat left top transparent;
+	}
+}
+
+@for $i from 1 through $slides {
+	#slide#{$i} {
+		.content { background: url(/assets/img/structure/slide#{$i}-lines.png) no-repeat left top transparent; }
+	}
+}
+
+#slide1 {
+	height: 768px;
+	@include gradient;
+
+	.content {
 
 		.logo {
 			position: absolute;
@@ -131,6 +174,48 @@
 }
 
 #slide2 {
+	.content {
+
+		.neil {
+			position: absolute;
+			top: 120px;
+			left: 325px;
+			width: 119px;
+			height: 119px;
+			@include icons-sprite(slide2-image-neil);
+		}
+
+		.darrel {
+			position: absolute;
+			top: 280px;
+			left: 915px;
+			width: 119px;
+			height: 119px;
+			@include icons-sprite(slide2-image-darrel);
+		}
+
+		.plus {
+			top: 513px;
+			left: 755px;
+		}
+
+		.skewed-copy {
+			top: 490px;
+			left: 790px;
+		}
+
+		h2 {
+			position: absolute;
+			top: 500px
+		}
+
+		h3 {
+			position: absolute;
+			top: 620px;
+			left: 16px;
+		}
+	}
+
 	// background-image: url(../img/structure/prime02.png);
 	// background-color: purple;
 	// background-repeat: no-repeat;
@@ -141,6 +226,60 @@
 }
 
 #slide3 {
+	.content {
+		h2 {
+			position: absolute;
+			top: 477px;
+			left: 797px;
+		}
+
+		.plus {
+			&.one {
+				left: 95px;
+				top: 405px;
+			}
+
+			&.two {
+				top: 235px;
+				left: 733px;
+			}
+		}
+
+		.pru-logo {
+			position: absolute;
+			top: 255px;
+			left: 147px;
+			width: 155px;
+			height: 162px;
+			@include icons-sprite(slide3-image-pru);
+		}
+
+		.lpo-logo {
+			position: absolute;
+			top: 236px;
+			left: 784px;
+			width: 284px;
+			height: 29px;
+			@include icons-sprite(slide3-image-lpo);
+		}
+
+		.copy {
+			position: absolute;
+
+			&#pru {
+				top: 318px;
+				left: 360px;
+				width: 368px;
+			}
+
+			&#lpo {
+				top: 278px;
+				left: 784px;
+				width: 275px;
+			}
+		}
+	}
+
 	// background-image: url(../img/structure/prime03.png);
 	// background-color: red;
 	// background-repeat: no-repeat;
@@ -151,6 +290,87 @@
 }
 
 #slide4 {
+
+	.content {
+
+		h2 {
+			position: absolute;
+			top: 367px;
+			left: 841px;
+		}
+
+		h3 {
+			position: absolute;
+			width: 315px;
+			top: 200px;
+			left: 820px;
+			font-size: 24px;
+			font-size: 2.4rem;
+			line-height: 30px;
+			line-height: 3.0rem;
+			font-family: "MetaWebPro-Normal";
+		}
+
+		.plus {
+			z-index: 2;
+
+			&.one {
+				top: 405px;
+				left: 308px;
+			}
+
+			&.two {
+				top: 307px;
+				left: 628px;
+			}
+		}
+
+		.logos {
+			position: absolute;
+			top: 346px;
+			left: 376px;
+			width: 203px;
+			height: 177px;
+			@include icons-sprite(slide4-image-logos);
+		}
+
+		.shell-logo {
+			position: absolute;
+			top: 186px;
+			left: 724px;
+			width: 74px;
+			height: 76px;
+			@include icons-sprite(slide4-image-shell);
+		}
+
+		.skewed-copy {
+			width: 355px;
+
+			p {
+				font-family: "MetaWebPro-Light";
+				color: #82cdae;
+			}
+
+			&#logos {
+				top: 426px;
+				left: 317px;
+
+				p {
+					width: 335px;
+				}
+			}
+
+			&#shell {
+				top: 272px;
+				left: 805px;
+
+				p {
+					width: 305px;
+				}
+			}
+		}
+	}
+
 	// background-image: url(../img/structure/prime04.png);
 	// background-color: purple;
 	// background-repeat: no-repeat;
@@ -161,6 +381,45 @@
 }
 
 #slide5 {
+
+	.content {
+
+		h2 {
+			position: absolute;
+			top: 367px;
+			left: 200px;
+		}
+
+		h3 {
+			position: absolute;
+			width: 282px;
+			top: 140px;
+			left: 857px;
+			font-size: 18px;
+			font-size: 1.8rem;
+			// line-height: 30px;
+			// line-height: 3.0rem;
+			font-family: "MetaWebPro-Bold";
+		}
+
+		.plus {
+			&.one {
+				top: 59px;
+				left: 1043px;
+				z-index: 2;
+			}
+		}
+
+		.bt {
+			position: absolute;
+			top: 62px;
+			left: 1000px;
+			width: 74px;
+			height: 76px;
+			@include icons-sprite(slide5-image-logo);
+		}
+
+	}
 	// background-image: url(../img/structure/prime05.png);
 	// background-color: red;
 	// background-repeat: no-repeat;
@@ -171,6 +430,7 @@
 }
 
 #slide6 {
+	@include gradient;
 	// background-image: url(../img/structure/prime06.png);
 	// background-color: purple;
 	// background-repeat: no-repeat;
@@ -237,6 +497,16 @@
 	// -webkit-background-size: 700px 649px;
 	// -moz-background-size: 700px 649px;
 	// background-size: 700px 649px;
+}
+
+#slide14 {
+	@include gradient;
+}
+
+#slide15 {
+}
+
+#slide16 {
 }
 
 /******************************
@@ -348,5 +618,10 @@ PARALLAX OBJECTS
 
 	#scroller {
 	  height: 3000px;
+	}
+
+	.hidden-content {
+		opacity: 1;
+		display: none;
 	}
 }

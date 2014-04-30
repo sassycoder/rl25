@@ -1,13 +1,11 @@
-@mixin input-placeholder {
-  &:-moz-placeholder { @content; opacity:1; }
-  &::-moz-placeholder { @content; opacity:1; }
-  &:-ms-input-placeholder { @content; }
-  &::-webkit-input-placeholder { @content; }
-}
 
-@mixin textarea-placeholder {
-  &:-moz-placeholder { @content; opacity:1; }
-  &::-moz-placeholder { @content; opacity:1; }
-  &:-ms-input-placeholder { @content; }
-  &::-webkit-input-placeholder { @content; }
+@mixin gradient {
+background: rgba(46,172,102,1);
+	background: -moz-linear-gradient(left, rgba(46,172,102,0.6) 0%, rgba(54,169,224,0.6) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(46,172,102,0.6)), color-stop(100%, rgba(54,169,224,0.6)));
+	background: -webkit-linear-gradient(left, rgba(46,172,102,0.6) 0%, rgba(54,169,224,0.6) 100%);
+	background: -o-linear-gradient(left, rgba(46,172,102,0.6) 0%, rgba(54,169,224,0.6) 100%);
+	background: -ms-linear-gradient(left, rgba(46,172,102,0.6) 0%, rgba(54,169,224,0.6) 100%);
+	background: linear-gradient(to right, rgba(46,172,102,0.6) 0%, rgba(54,169,224,0.6) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2eac66', endColorstr='#36a9e0', GradientType=1 );
 }
