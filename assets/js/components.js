@@ -13,18 +13,19 @@ jQuery(document).ready(function ($) {
     var iScrollInstance;
 
     if (isMobileWebkit) {
-      //iScrollInstance = new iScroll('wrapper');
+      // iScrollInstance = new IScroll('#scroller', {
+      //   mouseWheel: true,
+      //   scrollbars: true
+      // });
 
       $('#scroller').stellar({
-        scrollProperty: 'transform',
-        positionProperty: 'transform',
-        horizontalScrolling: false,
-        verticalOffset: 150
+        scrollProperty: 'scroll',
+        positionProperty: 'position',
+        horizontalScrolling: false
       });
     } else {
       $.stellar({
-        horizontalScrolling: false,
-        verticalOffset: 150
+        horizontalScrolling: false
       });
     }
 
@@ -44,22 +45,18 @@ jQuery(document).ready(function ($) {
       } else {
         $(getRef).toggleClass('fade-in');
       }
-
-
-
-
     });
 
   });
 
     // initialise Stellar.js
-    // $(window).stellar();
+     //$(window).stellar();
 
     // Cache variables for Stellar.js in the document
-    var links = $('.navigation').find('li');
-    slide = $('.slide');
-    button = $('.button');
-    mywindow = $(window);
+    var nav = $('.navigation');
+    links = $(nav).find('li'),
+    slide = $('.slide'),
+    mywindow = $(window),
     htmlbody = $('html,body');
 
     // Set up for waypoints navigation
@@ -72,7 +69,7 @@ jQuery(document).ready(function ($) {
         // data-slide attribute as the slide to active and remove the active
         // class from the previous navigation link
         if (direction === 'down') {
-            $('.navigation li[data-slide="' + dataslide + '"]').
+            $('.navigation li[data-slide="' + dataslide + '"], .slide[data-slide="' + dataslide + '"]').
             addClass('active').
             prev().
             removeClass('active');
@@ -82,7 +79,7 @@ jQuery(document).ready(function ($) {
         // the same data-slide attribute as the slide to active and remove the
         // active class from the next navigation link
         else {
-            $('.navigation li[data-slide="' + dataslide + '"]').
+            $('.navigation li[data-slide="' + dataslide + '"], .slide[data-slide="' + dataslide + '"]').
             addClass('active').
             next().
             removeClass('active');
@@ -94,8 +91,8 @@ jQuery(document).ready(function ($) {
     // navigation link slide 2 and adds it to navigation link slide 1.
     mywindow.scroll(function () {
         if (mywindow.scrollTop() == 0) {
-            $('.navigation li[data-slide="1"]').addClass('active');
-            $('.navigation li[data-slide="2"]').removeClass('active');
+            $('.navigation li[data-slide="1"], .slide[data-slide="1"]').addClass('active');
+            $('.navigation li[data-slide="2"], .slide[data-slide="2"]').removeClass('active');
         }
     });
 
@@ -104,10 +101,24 @@ jQuery(document).ready(function ($) {
     // used, so we passed in the easing method of 'easeInOutQuint' which is
     //available throught the plugin.
     function goToByScroll(dataslide) {
+        var slideToScrollTo = $('.slide[data-slide="' + dataslide + '"]');
+
+        nav.addClass('fade');
+
         htmlbody.animate({
-            scrollTop: $('.slide[data-slide="' + dataslide + '"]').
-            offset().top
-        }, 1500, 'easeOutQuart');
+            scrollTop: slideToScrollTo.offset().top
+        }, {
+            duration: 1500,
+            easing: 'easeOutQuart',
+            complete: function () { nav.removeClass('fade'); },
+            step: function (now) {
+              var percent = ((100*now)/slideToScrollTo.offset().top).toFixed(0);
+                if (percent >= 98 ) {
+                  slideToScrollTo.addClass('active');
+                }
+            }
+          })
+          //1500, 'easeOutQuart', function () { nav.removeClass('fade') });
     }
 
     // When the user clicks on the navigation links, get the data-slide
@@ -119,14 +130,6 @@ jQuery(document).ready(function ($) {
         goToByScroll(dataslide);
     });
 
-    // When the user clicks on the button, get the get the data-slide attribute
-    // value of the button and pass that variable to the goToByScroll function
-    button.click(function (e) {
-        e.preventDefault();
-        dataslide = $(this).
-        attr('data-slide');
-        goToByScroll(dataslide);
-    });
 
     //Mouse-wheel scroll easing
     if (window.addEventListener)
