@@ -195,6 +195,10 @@ $slides: 16;
 	height: 768px;
 	@include gradient;
 
+	.content, .lasers {
+		top: 68px; /* to compensate for the menu at the top */
+	}
+
 	.content {
 
 		.logo {
