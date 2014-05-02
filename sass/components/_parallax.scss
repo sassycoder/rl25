@@ -17,37 +17,47 @@ $slides: 16;
 	background: url(../img/structure/main-grid.png) no-repeat center 68px;
 }
 
-.navigation {
-	position: fixed;
-	z-index: 1;
-	background: rgba(255, 255, 255, 0.2);
-	padding: 20px;
-	left: 30px;
-	opacity: 1;
-	filter: alpha(opacity=100);
-	-webkit-transition: opacity .2s ease-in-out;
-	-moz-transition: opacity .2s ease-in-out;
-	-o-transition: opacity .2s ease-in-out;
-	-ms-transition: opacity .2s ease-in-out;
-	transition: opacity .2s ease-in-out;
+#nav {
 
-	li {
-		width: 10px;
-		height: 10px;
-		border-radius: 5px;
-		margin: 0 auto;
-		position: relative;
-		-webkit-transition: all .2s ease-in-out;
-		-moz-transition: all .2s ease-in-out;
-		-o-transition: all .2s ease-in-out;
-		-ms-transition: all .2s ease-in-out;
-		transition: all .2s ease-in-out;
-		margin-bottom: 25px;
+	.navigation {
+		position: fixed;
 
-		&:hover, &.active {
-			background-color: #fff !important;
-			cursor: pointer;
+		padding: 20px;
+		right: 190px;
+		top: 100px;
+		opacity: 1;
+		z-index: 1;
+		filter: alpha(opacity=100);
+		-webkit-transition: opacity .2s ease-in-out;
+		-moz-transition: opacity .2s ease-in-out;
+		-o-transition: opacity .2s ease-in-out;
+		-ms-transition: opacity .2s ease-in-out;
+		transition: opacity .2s ease-in-out;
+
+		li {
+			width: 10px;
+			height: 10px;
+			border-radius: 5px;
+			margin: 0 auto;
+			position: relative;
+			margin-bottom: 25px;
+			color: #000;
+			-webkit-transition: all .2s ease-in-out;
+			-moz-transition: all .2s ease-in-out;
+			-o-transition: all .2s ease-in-out;
+			-ms-transition: all .2s ease-in-out;
+			transition: all .2s ease-in-out;
+
+
+			&:hover, &.active {
+				background-color: #fff !important;
+				cursor: pointer;
+			}
 		}
+	}
+
+	&.nav-slide-1 {
+		li { color: #fff; }
 	}
 }
 
@@ -157,6 +167,9 @@ $slides: 16;
 	}
 
 	.content, .lasers {
+		position: absolute;
+		top: 0;
+		left: 0;
 		width: 100%;
 		height: 700px;
 		margin: 0 auto;
@@ -164,11 +177,11 @@ $slides: 16;
 
 	.content {
 		opacity: 0.1;
-		-webkit-transition: opacity .3s ease-in-out;
-		-moz-transition: opacity .3s ease-in-out;
-		-o-transition: opacity .3s ease-in-out;
-		-ms-transition: opacity .3s ease-in-out;
-		transition: opacity .3s ease-in-out;
+		-webkit-transition: opacity .4s ease-in-out;
+		-moz-transition: opacity .4s ease-in-out;
+		-o-transition: opacity .4s ease-in-out;
+		-ms-transition: opacity .4s ease-in-out;
+		transition: opacity .4s ease-in-out;
 	}
 }
 
@@ -248,14 +261,6 @@ $slides: 16;
 			left: 16px;
 		}
 	}
-
-	// background-image: url(../img/structure/prime02.png);
-	// background-color: purple;
-	// background-repeat: no-repeat;
-	// background-position: center !important;
-	// -webkit-background-size: 700px 644px;
-	// -moz-background-size: 700px 644px;
-	// background-size: 700px 644px;
 }
 
 #slide3 {
@@ -312,14 +317,6 @@ $slides: 16;
 			}
 		}
 	}
-
-	// background-image: url(../img/structure/prime03.png);
-	// background-color: red;
-	// background-repeat: no-repeat;
-	// background-position: center !important;
-	// -webkit-background-size: 700px 496px;
-	// -moz-background-size: 700px 496px;
-	// background-size: 700px 496px;
 }
 
 #slide4 {
@@ -403,14 +400,6 @@ $slides: 16;
 			}
 		}
 	}
-
-	// background-image: url(../img/structure/prime04.png);
-	// background-color: purple;
-	// background-repeat: no-repeat;
-	// background-position: center !important;
-	// -webkit-background-size: 700px 568px;
-	// -moz-background-size: 700px 568px;
-	// background-size: 700px 568px;
 }
 
 #slide5 {
@@ -453,13 +442,6 @@ $slides: 16;
 		}
 
 	}
-	// background-image: url(../img/structure/prime05.png);
-	// background-color: red;
-	// background-repeat: no-repeat;
-	// background-position: center !important;
-	// -webkit-background-size: 700px 449px;
-	// -moz-background-size: 700px 449px;
-	// background-size: 700px 449px;
 }
 
 #slide6 {
@@ -523,13 +505,6 @@ $slides: 16;
 			width: 315px;
 		}
 	}
-	// background-image: url(../img/structure/prime06.png);
-	// background-color: purple;
-	// background-repeat: no-repeat;
-	// background-position: center !important;
-	// -webkit-background-size: 700px 700px;
-	// -moz-background-size: 700px 700px;
-	// background-size: 700px 700px;
 }
 
 #slide7 {
@@ -581,12 +556,6 @@ $slides: 16;
 			}
 		}
 	}
-	// background-image: url(../img/structure/prime07.png);
-	// -webkit-background-size: cover;
-	// -moz-background-size: cover;
-	// background-size: cover;
-	// height: 100% !important;
-	// width: 100% !important;
 }
 
 #slide8 {
@@ -632,13 +601,6 @@ $slides: 16;
 			width: 247px
 		}
 	}
-	// background-image: url(../img/structure/prime08.png);
-	// background-color: red;
-	// background-repeat: no-repeat;
-	// background-position: center !important;
-	// -webkit-background-size: 700px 449px;
-	// -moz-background-size: 700px 449px;
-	// background-size: 700px 449px;
 }
 
 #slide9 {
@@ -697,13 +659,6 @@ $slides: 16;
 			}
 		}
 	}
-	// background-image: url(../img/structure/prime09.png);
-	// background-color: purple;
-	// background-repeat: no-repeat;
-	// background-position: center !important;
-	// -webkit-background-size: 700px 1150px;
-	// -moz-background-size: 700px 1150px;
-	// background-size: 700px 1150px;
 }
 
 #slide10 {
@@ -744,13 +699,6 @@ $slides: 16;
 			}
 		}
 	}
-	// background-image: url(../img/structure/prime10.jpg);
-	// background-color: red;
-	// -webkit-background-size: cover;
-	// -moz-background-size: cover;
-	// background-size: cover;
-	// height: 100% !important;
-	// width: 100% !important;
 }
 
 #slide11 {
@@ -799,13 +747,6 @@ $slides: 16;
 		}
 
 	}
-	// background-image: url(../img/structure/prime11.png);
-	// background-color: purple;
-	// background-repeat: no-repeat;
-	// background-position: center !important;
-	// -webkit-background-size: 700px 649px;
-	// -moz-background-size: 700px 649px;
-	// background-size: 700px 649px;
 }
 
 #slide12 {
@@ -850,14 +791,6 @@ $slides: 16;
 				width: 320px;
 			}
 		}
-
-	// background-image: url(../img/structure/prime12.png);
-	// background-color: red;
-	// background-repeat: no-repeat;
-	// background-position: center !important;
-	// -webkit-background-size: 700px 649px;
-	// -moz-background-size: 700px 649px;
-	// background-size: 700px 649px;
 }
 
 #slide14 {

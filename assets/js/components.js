@@ -63,28 +63,36 @@ jQuery(document).ready(function ($) {
     slide.waypoint(function (event, direction) {
         // cache the variable of the data-slide attribute associated with each
         // slide
-        dataslide = $(this).attr('data-slide');
+        dataslide = $(this).attr('data-slide'),
+        wrapperNav = $('#nav');
 
-        // If the user scrolls up change the navigation link that has the same
+        // If the user scrolls down change the navigation link and slide that has the same
         // data-slide attribute as the slide to active and remove the active
-        // class from the previous navigation link
+        // class from the previous navigation link and slide
         if (direction === 'down') {
             $('.navigation li[data-slide="' + dataslide + '"], .slide[data-slide="' + dataslide + '"]').
             addClass('active').
             prev().
             removeClass('active');
+
+            wrapperNav.removeClass().addClass('nav-slide-' + dataslide);
         }
 
-        // else If the user scrolls down change the navigation link that has
+        // else If the user scrolls up change the navigation link and slide that has
         // the same data-slide attribute as the slide to active and remove the
-        // active class from the next navigation link
+        // active class from the next navigation link and slide
         else {
             $('.navigation li[data-slide="' + dataslide + '"], .slide[data-slide="' + dataslide + '"]').
             addClass('active').
             next().
             removeClass('active');
+
+            wrapperNav.removeClass().addClass('nav-slide-' + dataslide);
         }
-    });
+    }, { offset: function () {
+          return 450;
+        }
+      });
 
     // waypoints doesnt detect the first slide when user scrolls back up to the
     // top so we add this little bit of code, that removes the class from
@@ -93,6 +101,7 @@ jQuery(document).ready(function ($) {
         if (mywindow.scrollTop() == 0) {
             $('.navigation li[data-slide="1"], .slide[data-slide="1"]').addClass('active');
             $('.navigation li[data-slide="2"], .slide[data-slide="2"]').removeClass('active');
+            $('#nav').removeClass().addClass('nav-slide-1');
         }
     });
 
@@ -111,14 +120,13 @@ jQuery(document).ready(function ($) {
             duration: 1500,
             easing: 'easeOutQuart',
             complete: function () { nav.removeClass('fade'); },
-            step: function (now) {
-              var percent = ((100*now)/slideToScrollTo.offset().top).toFixed(0);
+            step: function (prog) {
+              var percent = ((100*prog)/slideToScrollTo.offset().top).toFixed(0);
                 if (percent >= 98 ) {
                   slideToScrollTo.addClass('active');
                 }
             }
           })
-          //1500, 'easeOutQuart', function () { nav.removeClass('fade') });
     }
 
     // When the user clicks on the navigation links, get the data-slide
